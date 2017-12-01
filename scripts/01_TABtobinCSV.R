@@ -1,16 +1,12 @@
+##modify
 #Nicole E Soltis
 #convert .tab SNP data to binary .csv
 
 #------------------------------------------------------
 rm(list=ls())
 #on linux desktop
+##modify
 setwd("~/Documents/GitRepos/BcSolGWAS/data/GWAS_files/")
-#on laptop
-# setwd("~/Projects/BcSolGWAS/data/genome")
-#practice with mini file first
-#miniSNPs <- read.csv("minisnps.csv")
-#miniSNPs <- read.csv("miniMAF20.csv")
-#mySNPs <- miniSNPs
 
 #convert all .tab SNP files to .csv
  tab5 = read.delim("01_tabfiles/Suzi_033016/Haploid_SNPS_97_dp6_maf5.tab")
@@ -27,38 +23,11 @@ setwd("~/Documents/GitRepos/BcSolGWAS/data/GWAS_files/")
  SNPsMAF20 <- read.csv("02_csvPrep/snps_maf20.csv")
 mySNPs <- SNPsMAF20
 
-#17 possible states: A/A G/G T/T C/C G/A T/C A/T C/T T/A A/G G/T C/A A/C ./. G/C T/G C/G
-#how to deal with heterozygosity?
-#convert N/N format to N if diploid calls
-# str(mySNPs)
+
 #make these characters instead of factors
 mySNPs[] <- lapply(mySNPs, as.character)
-mySNPs[mySNPs=="C/C"]<-"C"
-mySNPs[mySNPs=="T/T"]<-"T"
-mySNPs[mySNPs=="A/A"]<-"A"
-mySNPs[mySNPs=="G/G"]<-"G"
-# mySNPs[mySNPs=="A/C"]<-"NA"
-# mySNPs[mySNPs=="A/G"]<-"NA"
-# mySNPs[mySNPs=="A/T"]<-"NA"
-# mySNPs[mySNPs=="C/A"]<-"NA"
-# mySNPs[mySNPs=="C/G"]<-"NA"
-# mySNPs[mySNPs=="C/T"]<-"NA"
-# mySNPs[mySNPs=="G/A"]<-"NA"
-# mySNPs[mySNPs=="G/C"]<-"NA"
-# mySNPs[mySNPs=="G/T"]<-"NA"
-# mySNPs[mySNPs=="T/A"]<-"NA"
-# mySNPs[mySNPs=="T/C"]<-"NA"
-# mySNPs[mySNPs=="T/G"]<-"NA"
-# mySNPs[mySNPs=="./."]<-"NA"
 mySNPs[mySNPs=="."]<-NA #this is a true NA
 allSNPs<- mySNPs
-
-#unlist(unique(mySNPs$X305))
-#table(mySNPs$X305)
-
-#mySNPsMAF20 <- mySNPs
-#miniMAF20 <- mySNPsMAF20[1:20,1:20]
-#mySNPs <- miniMAF20
 
 #replace base with 1 if match
 #loop through it
@@ -70,6 +39,7 @@ for (i in names(mySNPs[4:100])) {
 }
 
 #remove low MAFs!
+##check line by line
 names(mySNPs)
 mySNPs$Freq <- rowSums(mySNPs =="1")
 mySNPs$Freq.0 <- rowSums(mySNPs =="0")
@@ -97,6 +67,6 @@ mySNPs <- mySNPs[mySNPs$NAcount <= 48,]
 #mySNPs <- mySNPs[mySNPs$NAcount <= 19,]
 #mySNPs <- mySNPs[mySNPs$NAcount <= 9,]
 
-
+##rename outputs for each SNP file
 write.csv(allSNPs, "02_csvPrep/hp_charMAF5.csv")
 write.csv(mySNPs, "02_csvPrep/hp_binaryMAF20_trueMAF_50NA.csv")
