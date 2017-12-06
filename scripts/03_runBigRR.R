@@ -1,10 +1,10 @@
-#Nicole E Soltis 
+#Josue Vega
 #from script by Jason A Corwin, Modified by Rachel Fordyce
 #to run bigRR on Linux GPU for GWAS
 #---------------------------------------------------------------
 
 rm(list=ls())
-setwd("~/Documents/GitRepos/BcSolGWAS/data/GWAS_files/")
+setwd("~/../Desktop/B. cinera/Hwaviness/data/")
 
 #########################
 # This makes the bigRR_update run through the GPU

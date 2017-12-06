@@ -1,10 +1,10 @@
-#Nicole E Soltis 
+#Josue Vega
 #plotting from bigRR on Linux GPU for GWAS
 #---------------------------------------------------------------
 
 rm(list=ls())
 #setwd("~/Documents/GitRepos/BcSolGWAS/")
-setwd("~/Projects/BcSolGWAS/")
+setwd("~/../Desktop/B. cinera/Hwaviness/")
 
 #Input File: Sl_DomesticationLS_MAF20.HEM.PlotFormat.csv and .Thresh.csv
 #Output File: results/Domestication_TopSNPs_SegLong.csv, results/Domestication_TopSNPs_SegWide.csv
@@ -16,10 +16,10 @@ setwd("~/Projects/BcSolGWAS/")
 library(plyr); library(ggplot2); library(grid)
 
 #Import data (reorganized from script ReformatBigRRouts.R)
-HEM.plotdata <- read.csv("data/GWAS_files/04_bigRRoutput/trueMAF_10NA/SlBc_domest_trueMAF20_10NA.HEM.PlotFormat.csv")
+HEM.plotdata <- read.csv("data/04_bigRRoutput/trueMAF_10NA/SlBc_domest_trueMAF20_10NA.HEM.PlotFormat.csv")
 
 #get threshhold values 
-HEM.thresh <- read.csv("data/GWAS_files/04_bigRRoutput/trueMAF_10NA/SlBc_domest_trueMAF20_10NA.HEM.Thresh.csv")
+HEM.thresh <- read.csv("data/04_bigRRoutput/trueMAF_10NA/SlBc_domest_trueMAF20_10NA.HEM.Thresh.csv")
 
 #take the top 50 over the threshold for each phenotype
 TH95pos <- HEM.thresh[1,]
@@ -106,12 +106,12 @@ plot1 + geom_point(aes(color=factor(Trait)))+
   
 #make it wide format
 #currently long format : Chrom, Segment, Pos, Index, Effect, Trait
-write.csv(HEM.plotdata, "data/GWAS_files/05_annotation/TrueMAF_NAs/Domestication_TopSNPs_SegLong_trueMAF20_10NA.csv")
-write.csv(HEM.topSNPs, "data/GWAS_files/05_annotation/TrueMAF_NAs/Domestication_Top1kSNPs_SegLong_trueMAF20_10NA.csv")
+write.csv(HEM.plotdata, "data/05_annotation/TrueMAF_NAs/Domestication_TopSNPs_SegLong_trueMAF20_10NA.csv")
+write.csv(HEM.topSNPs, "data/05_annotation/TrueMAF_NAs/Domestication_Top1kSNPs_SegLong_trueMAF20_10NA.csv")
 
 TopSNP.wide.DM <- reshape(HEM.topSNPs, 
                          timevar = "Trait",
                          idvar = c("Chrom","Segment","Pos","Index"),
                          direction = "wide")
 
-write.csv(TopSNP.wide.DM, "data/GWAS_files/05_annotation/TrueMAF_NAs/Domestication_Top1kSNPs_SegWide_trueMAF20_10NA.csv")
+write.csv(TopSNP.wide.DM, "data/05_annotation/TrueMAF_NAs/Domestication_Top1kSNPs_SegWide_trueMAF20_10NA.csv")

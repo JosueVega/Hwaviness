@@ -1,11 +1,11 @@
 #reformat bigRR output data
-#Nicole E Soltis
+#Josue Vega
 
 #--------------------------------------------------------
 rm(list=ls())
 library(tidyr)
 #setwd("~/Documents/GitRepos/BcSolGWAS/data/SNP_files")
-setwd("~/Projects/BcSolGWAS/data/GWAS_files/04_bigRRoutput/trueMAF_20NA/")
+setwd("~/../Desktop/B. cinera/Hwaviness/data/04_bigRRoutput/trueMAF_20NA/")
 #Import data
 #reorganize file Sl_LesionSize.HEM.csv
 HEMdat <- read.csv("SlBc_domest_trueMAF20_20NA.HEM.csv")

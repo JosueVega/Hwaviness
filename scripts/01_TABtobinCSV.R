@@ -1,12 +1,12 @@
 ##modify
-#Nicole E Soltis
+#Josue Vega
 #convert .tab SNP data to binary .csv
 
 #------------------------------------------------------
 rm(list=ls())
 #on linux desktop
 ##modify
-setwd("~/Documents/GitRepos/BcSolGWAS/data/GWAS_files/")
+setwd("~/../Desktop/B. cinera/Hwaviness/data/")
 
 #convert all .tab SNP files to .csv
  tab5 = read.delim("01_tabfiles/Suzi_033016/Haploid_SNPS_97_dp6_maf5.tab")
@@ -53,6 +53,7 @@ mySNPs$NAcount <- 98 - (mySNPs$Freq.1 + mySNPs$Freq.0)
 mySNPs$Freq <- (mySNPs$Freq.1)/ (mySNPs$Freq.1 + mySNPs$Freq.0)
 hist(mySNPs$Freq)
 
+
 #now, make choices:
 #omit loci with low info?
 #total of 98 isolates. A SNP with data in 90% of isolates is present in:
@@ -70,3 +71,5 @@ mySNPs <- mySNPs[mySNPs$NAcount <= 48,]
 ##rename outputs for each SNP file
 write.csv(allSNPs, "02_csvPrep/hp_charMAF5.csv")
 write.csv(mySNPs, "02_csvPrep/hp_binaryMAF20_trueMAF_50NA.csv")
+
+allSNPS.try <- read.csv( "02_csvPrep/hp_charMAF5.csv")

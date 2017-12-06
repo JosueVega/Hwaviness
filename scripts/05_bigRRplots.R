@@ -1,9 +1,9 @@
-#Nicole E Soltis
+#Josue Vega
 #plotting from bigRR on Linux GPU for GWAS
 #---------------------------------------------------------------
 
 rm(list=ls())
-setwd("~/Projects/BcSolGWAS/")
+setwd("~/../Desktop/B. cinera/Hwaviness/")
 #setwd("~/Projects/BcSolGWAS/")
 
 #Input file: Sl_DomesticationLS_MAF20.HEM.PlotFormat.csv AND Sl_DomesticationLS_MAF20.HEM.Thresh.csv
@@ -17,11 +17,11 @@ setwd("~/Projects/BcSolGWAS/")
 library(ggplot2); library(grid); library(plyr)
 
 #Import data (reorganized from script ReformatBigRRouts.R)
-HEM.plotdata <- read.csv("data/GWAS_files/04_bigRRoutput/trueMAF_10NA/SlBc_domest_trueMAF20_10NA.HEM.PlotFormat.csv")
+HEM.plotdata <- read.csv("data/04_bigRRoutput/trueMAF_10NA/SlBc_domest_trueMAF20_10NA.HEM.PlotFormat.csv")
 HEM.plotdata <- HEM.plotdata[,-c(1)]
 
 #get threshhold values 
-HEM.thresh <- read.csv("data/GWAS_files/04_bigRRoutput/trueMAF_10NA/SlBc_domest_trueMAF20_10NA.HEM.Thresh.csv")
+HEM.thresh <- read.csv("data/04_bigRRoutput/trueMAF_10NA/SlBc_domest_trueMAF20_10NA.HEM.Thresh.csv")
 HEM.thresh <- HEM.thresh[,-c(1)]
 
 TH99pos <- HEM.thresh[3,]
