@@ -4,7 +4,8 @@
 #---------------------------------------------------------------
 
 rm(list=ls())
-setwd("~/../Desktop/B. cinera/Hwaviness/data/")
+setwd("~/Documents/GitRepos/Hwaviness/data/")
+#NVIDIA nvcc
 
 #########################
 # This makes the bigRR_update run through the GPU
@@ -43,8 +44,9 @@ SNPs <- FullSNPs
 SNPs$Chr.Base <- do.call(paste, c(SNPs[c("X.CHROM","POS")], sep="."))
 rownames(SNPs) <- SNPs[,96] #set the new column of chrom.base as rownames - this could maybe be written as: rownames(SNPs) <- SNPs$Chr.Base?
 any(duplicated(SNPs$Chr.Base))#check that none are duplicated
-SNPs <- SNPs[,4:96] #take out first three cols (X.CHROM, POS, REF) and new last col (Chr.Base). dim(SNPs) should now be [345485, 91], colnames(SNPs) are all Bc Isolates, rownames(SNPs) are all Chr.Base
+SNPs <- SNPs[,4:95] #take out first three cols (X.CHROM, POS, REF) and new last col (Chr.Base). dim(SNPs) should now be [345485, 91], colnames(SNPs) are all Bc Isolates, rownames(SNPs) are all Chr.Base
 ogSNPs <- SNPs
+SNPs <- ogSNPs
 
 #makes SNP states numeric (also transposes SNP matrix)
 SNPs <- as.matrix(t(SNPs))
@@ -54,7 +56,7 @@ for(i in 1:dim(SNPs)[1]) {
 
 #read in phenotype data
 Phenos <- read.csv("03_bigRRinput/Domestication/Sl_Pheno_bigRR_trueMAF20_50NA.csv", row.names = 1)
-dat <- as.data.frame((Phenos[,2:4]))  #INSERT PHENOTYPE COLUMNS HERE
+dat <- as.data.frame((Phenos[4]))  #INSERT PHENOTYPE COLUMNS HERE
 #e.g. LesionGreen as.data.frame(c(Phenos[,31:32],Phenos[,34:35]))
 
 #should I remove reference (B05.10 I assume) phenotypes and genotypes from list?
@@ -73,10 +75,11 @@ sink(con, append=TRUE, type="message")
 for(i in 1:dim(dat)[2]) { #i will be each isolate
   print(colnames(dat)[i])
   MyX <- matrix(1, dim(dat)[1], 1) #good to here
-  
+
   #added try here
   #testing with impute=T
-  Pheno.BLUP.result <- try(bigRR(y = dat[,i], X = MyX, Z = SNPs, GPU = TRUE, impute=TRUE)) #why is this failing for Col0.AT3G26830 and Col0.AT2G30770
+ Pheno.BLUP.result <- try(bigRR(y = dat[,i], X = MyX, Z = SNPs, GPU = TRUE, impute=TRUE))
+#  Pheno.BLUP.result <- try(bigRR(y = dat[,i], X = MyX, Z = SNPs, GPU = TRUE, impute=FALSE)) 
 #can add try here as well
 Pheno.HEM.result <- try(bigRR_update(Pheno.BLUP.result, SNPs))
 
@@ -124,4 +127,4 @@ thresh.HEM$"neg0.99Thresh" <- c("neg 0.99 Thresh", thresh.HEM$"neg0.99Thresh")
 thresh.HEM$"neg0.999Thresh" <- c("neg 0.999 Thresh", thresh.HEM$"neg0.999Thresh")
 
 #Write results to output
-write.csv(rbind(thresh.HEM$"pos0.95Thresh",thresh.HEM$"pos0.975Thresh",thresh.HEM$"pos0.99Thresh",thresh.HEM$"pos0.999Thresh",thresh.HEM$"neg0.95Thresh",thresh.HEM$"neg0.975Thresh",thresh.HEM$"neg0.99Thresh",thresh.HEM$"neg0.999Thresh",outpt.HEM),"04_bigRRoutput/trueMAF20_20NA/SlBc_domest_trueMAF20_20NA.HEM.csv")
+write.csv(rbind(thresh.HEM$"pos0.95Thresh",thresh.HEM$"pos0.975Thresh",thresh.HEM$"pos0.99Thresh",thresh.HEM$"pos0.999Thresh",thresh.HEM$"neg0.95Thresh",thresh.HEM$"neg0.975Thresh",thresh.HEM$"neg0.99Thresh",thresh.HEM$"neg0.999Thresh",outpt.HEM),"04_bigRRoutput/trueMAF20_20NA/HWavi_trueMAF20_20NA.HEM.csv")
