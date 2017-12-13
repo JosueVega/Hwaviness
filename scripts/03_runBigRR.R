@@ -36,12 +36,12 @@ bigRR_update <- function (obj, Z, family = gaussian(link = identity), tol.err = 
 library(bigRR) #check if version is 1.3-9
 
 #Get genotype data
-SNPs <- read.csv("03_bigRRinput/Domestication/hpbinSNP_bigRR_trueMAF20_20NA.csv", row.names = 1)
+SNPs <- read.csv("03_bigRRinput/Domestication/hpbinSNP_bigRR_trueMAF20_50NA.csv", row.names = 1)
 FullSNPs <- SNPs
 SNPs <- FullSNPs
 #add a column with position as chr.base
 SNPs$Chr.Base <- do.call(paste, c(SNPs[c("X.CHROM","POS")], sep="."))
-rownames(SNPs) <- SNPs[,97] #set the new column of chrom.base as rownames - this could maybe be written as: rownames(SNPs) <- SNPs$Chr.Base?
+rownames(SNPs) <- SNPs[,96] #set the new column of chrom.base as rownames - this could maybe be written as: rownames(SNPs) <- SNPs$Chr.Base?
 any(duplicated(SNPs$Chr.Base))#check that none are duplicated
 SNPs <- SNPs[,4:96] #take out first three cols (X.CHROM, POS, REF) and new last col (Chr.Base). dim(SNPs) should now be [345485, 91], colnames(SNPs) are all Bc Isolates, rownames(SNPs) are all Chr.Base
 ogSNPs <- SNPs
@@ -53,7 +53,7 @@ for(i in 1:dim(SNPs)[1]) {
 }
 
 #read in phenotype data
-Phenos <- read.csv("03_bigRRinput/Domestication/Sl_Pheno_bigRR_trueMAF20_20NA.csv", row.names = 1)
+Phenos <- read.csv("03_bigRRinput/Domestication/Sl_Pheno_bigRR_trueMAF20_50NA.csv", row.names = 1)
 dat <- as.data.frame((Phenos[,2:4]))  #INSERT PHENOTYPE COLUMNS HERE
 #e.g. LesionGreen as.data.frame(c(Phenos[,31:32],Phenos[,34:35]))
 
