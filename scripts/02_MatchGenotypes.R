@@ -3,7 +3,7 @@
 
 #-----------------------------------------------------------
 rm(list=ls())
-setwd("~/../Desktop/B. cinera/Hwaviness/data/")
+setwd("~/Documents/Hwaviness/data/")
 #for laptop setwd("~/Projects/BcSolGWAS/data/genome")
 SNPs <- read.csv("02_csvPrep/hp_binaryMAF20_trueMAF_50NA.csv", row.names = 1)
 

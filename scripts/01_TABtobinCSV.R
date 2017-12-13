@@ -6,7 +6,7 @@
 rm(list=ls())
 #on linux desktop
 ##modify
-setwd("~/../Desktop/B. cinera/Hwaviness/data/")
+setwd("~/Documents/Hwaviness/data/")
 
 #convert all .tab SNP files to .csv
  tab5 = read.delim("01_tabfiles/Suzi_033016/Haploid_SNPS_97_dp6_maf5.tab")
