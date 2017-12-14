@@ -5,10 +5,10 @@
 rm(list=ls())
 library(tidyr)
 #setwd("~/Documents/GitRepos/BcSolGWAS/data/SNP_files")
-setwd("~/../Desktop/B. cinera/Hwaviness/data/04_bigRRoutput/trueMAF_20NA/")
+setwd("~/../Desktop/B. cinera/Hwaviness/data/04_bigRRoutput/trueMAF20_20NA/")
 #Import data
 #reorganize file Sl_LesionSize.HEM.csv
-HEMdat <- read.csv("SlBc_domest_trueMAF20_20NA.HEM.csv")
+HEMdat <- read.csv("HWavi_trueMAF20_20NA.HEM.csv")
 
 #first remove first 4 rows (threshold data)
 HEMdat <- HEMdat[,-c(1)]
@@ -145,6 +145,6 @@ for (i in unique(HEM.plotdata$Chrom.Seg.Int)) {
 }
 ticklim=c(min(HEM.plotdata$Index),max(HEM.plotdata$Index))
 
-write.csv(HEM.plotdata, "SlBc_domest_trueMAF20_20NA.HEM.PlotFormat.csv") 
-write.csv(HEMthresh, "SlBc_domest_trueMAF20_20NA.HEM.Thresh.csv")
+write.csv(HEM.plotdata, "HWavi_trueMAF20_20NA.HEM.PlotFormat.csv") 
+write.csv(HEMthresh, "HWavi_trueMAF20_20NA.HEM.Thresh.csv")
 #read in to 06_plots
