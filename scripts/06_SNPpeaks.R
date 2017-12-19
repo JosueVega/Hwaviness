@@ -5,7 +5,7 @@
 rm(list=ls())
 ## set correct working directory
 #setwd("~/Documents/GitRepos/BcSolGWAS/")
-#setwd("~/../Desktop/B. cinera/Hwaviness/")
+setwd("~/../Desktop/B. cinera/Hwaviness/")
 
 ## update these file names!
 #Input File: data/04_bigRRoutput/trueMAF20_20NA/HWavi_trueMAF20_20NA.HEM.PlotFormat.csv
@@ -38,13 +38,13 @@ TH999neg <- HEM.thresh[8,]
 #remove empty first column
 HEM.plotdata <- HEM.plotdata[,-c(1)]
 
-names(HEM.plotdata)
+names(HEM.plotdata) #Chrom, Contig, Pos, Estimate, Chrom.cont, chrom.cont.f, chrom.cont.int, Index
 
 #conditionally replace values < threshold with zero
 #for 99% Threshold
 HEM.topSNPs_99Thr <- HEM.plotdata
 HEM.topSNPs_99Thr$Estimate[HEM.topSNPs_99Thr$Estimate < TH99pos$Estimate & HEM.topSNPs_99Thr$Estimate > 0] <- 0
-HEM.topSNPs_999Thr$Estimate[HEM.topSNPs_99Thr$Estimate > TH99neg$Estimate & HEM.topSNPs_99Thr$Estimate < 0] <- 0
+HEM.topSNPs_99Thr$Estimate[HEM.topSNPs_99Thr$Estimate > TH99neg$Estimate & HEM.topSNPs_99Thr$Estimate < 0] <- 0
 #remove rows if estimate = 0 
 #this keeps only the N rows with SNPs > 99% threshold
 HEM.topSNPs_99Thr <- HEM.topSNPs_99Thr[!(HEM.topSNPs_99Thr$Estimate==0),]
@@ -61,7 +61,7 @@ library(ggplot2)
 plot1 <- ggplot(HEM.topSNPs_999Thr, aes(x=Index, y=Estimate))
 plot1 + geom_point()+
   theme_bw()
-  
+
 #save it
 
 ##check these file names
