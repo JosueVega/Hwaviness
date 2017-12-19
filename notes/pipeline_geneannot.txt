@@ -1,0 +1,45 @@
+1. get peaks (SNPs of interest) from 06_SNPpeaks.R 
+
+2. Reformat data for PERL:
+	07_SNPdat_annot.R
+	Save with format:
+	chromosome_id	position	mutation
+	Chromosome1	12045	A
+	Chromosome1	51226	A
+
+3. run SNPdat in PERL on laptop (I recommend Strawberry PERL):
+	Change this to match where you have saved SNPdat on your laptop:
+	perl Programs/SNPdat_package_ v1.0.5/SNPdat_v1.0.5.pl
+		
+	perl Programs/SNPdat_package_v1.0.5/SNPdat_v1.0.5.pl -i  path/to/directory/Hwavi_TopSNPs999.FORPERL.txt -f path/Hwaviness/data/06_snpdat/suziT4.fasta -g Projects/BcSolGWAS/data/06_snpdat/genes_Chromosomev2.gtf
+
+
+4. subset to only 2kb windows
+	a. change file name extension to .txt
+	b. open excel, then open file in excel
+	c. import as tab delimited, save as .csv
+	d. edit in R: 08_gene_annot.R
+	e. outputs are path/to/outputs
+
+5. plot it
+	from 08_gene_annot.R
+
+6. annotate functions
+	09_function_annot.R
+	all outputs to data/05_annotation/window2kb
+		- lists by gene
+		- lists by functional annotation
+
+8. summarize functions
+	outputs in excel: make a page for "sigonly", sort by each significance column and highlight
+		then cut rows with no highlighting
+
+9. check online functions
+	BotPortal http://botbioger.versailles.inra.fr/botportal/
+
+10. select focal gene for zoomed in plot
+	gene from AllAnnots_byGene.xlsx
+	in path/to/dir/genes_Chromosomev2.gtf find gene of interest
+	search for BcT4 gene name --> extract all features of gene name
+	then draw a single gene manhattan plot with 10_singleGeneManhattan.R
+	draw haplotype plot according to haplo_notes_PLINK.txt
