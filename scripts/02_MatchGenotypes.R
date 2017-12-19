@@ -3,7 +3,7 @@
 
 #-----------------------------------------------------------
 rm(list=ls())
-setwd("~/Documents/Hwaviness/data/")
+setwd("~/../Desktop/B. cinera/Hwaviness/data/")
 #for laptop setwd("~/Projects/BcSolGWAS/data/genome")
 SNPs <- read.csv("02_csvPrep/hp_binaryMAF20_trueMAF_50NA.csv", row.names = 1)
 
@@ -68,7 +68,8 @@ for (i in 4:95) {
 }
 
 #save them files!
-write.csv(SNPMatch2, "03_bigRRinput/Domestication/hpbinSNP_bigRR_trueMAF20_50NA.csv")
+write.csv(SNPMatch2, "
+          ")
 write.csv(PhenoMatch2, "03_bigRRinput/Domestication/Sl_Pheno_bigRR_trueMAF20_50NA.csv")
 #------------------------------------------------------------------------------
 #extra things
