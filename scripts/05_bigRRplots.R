@@ -68,10 +68,10 @@ for (i in 2:ncol(TH95neg)){
 }
 
 #create a custom color scale
-## this will make each chromosome alternating colors of light and dark grey
-#myColors <- c("grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60")
-#names(myColors) <- levels(HEM.plotdata$Chrom)
-#colScale <- scale_colour_manual(name = "Chrom",values = myColors)
+# this will make each chromosome alternating colors of light and dark grey
+myColors <- c("grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60", "grey20", "grey60")
+names(myColors) <- levels(HEM.plotdata$Chrom)
+colScale <- scale_colour_manual(name = "Chrom",values = myColors)
 
 #highTR
 
@@ -82,15 +82,18 @@ for (i in 2:ncol(TH95neg)){
 ##replace [,i] and [i] with the column number for "estimate" aka the effect size estimate for each SNP
 print(ggplot(HEM.plotdata, aes(x=Index, y=HEM.plotdata[,4], fill=Chrom))+
         theme_bw()+
-#        colScale+
+        colScale+ #for custom color scale 
         geom_point(aes(color = factor(Chrom)))+
-        labs(list(y="SNP Effect Estimate", title=("SNP Location and Effect Estimate of B. cinerea Phenotype Hyphal Waviness ")))+
+        labs(list(y="SNP Effect Estimate", title=("SNP Location and Effect Estimate of B. cinerea Hyphal Waviness Phenotype")))+
         guides(col = guide_legend(nrow = 8, title="Chromosome"))+
         geom_hline(yintercept=get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
         geom_hline(yintercept=get(paste("TH999pos_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
         geom_text(aes(0,get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), label = "99.9% Threshold", vjust = 1.2, hjust = .05), col = "black")+
 #        theme(legend.position="none")+
  
-        scale_x_continuous(name="Chromosome", breaks = c(16783780, 5229682, 8969240, 11025802, 13523203, 16084596, 17852852, 20198406, 22195012, 22305112, 24063010, 25662962, 15403010, 28588638, 30361505, 33424560), labels = c("1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12", "13", "14", "15", "16"))+
+        scale_x_continuous(name="Chromosome", breaks = c(1678379.5,	5229682,	8969240,	11025801.5,	13523203,	17029455,	19742569.5,	22088123.5,	24084729.5,	26433592,	28191490,	29741442,	31466489.5,	33553839,	35326706,	38389760.5), labels = c("1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12", "13", "14", "15", "16"))+
+        xlim(5229682, 8969240)+
         expand_limits(y=0))
+
+
 #dev.off()
