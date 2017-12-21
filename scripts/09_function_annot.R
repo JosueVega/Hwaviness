@@ -14,7 +14,10 @@ rm(list=ls())
 ##set directory
 setwd("~/../Desktop/B. cinera/Hwaviness")
 library(dplyr)
-myGenes <- read.csv("data/06_snpdat/99Thr_genes_2kbwin.csv")
+library(readr)
+
+# myGenes <- read.csv("data/06_snpdat/99Thr_genes_2kbwin.csv")
+myGenes <- read.csv("data/06_snpdat/999Thr_genes_2kbwin.csv")
 allFuncs <- read.csv("data/07_SNPdat_annot/botrytis_cinerea__t4__1_pfam_to_genes_mycleaned.csv")
 
 head(allFuncs)
@@ -27,7 +30,8 @@ myFuncs <- allFuncs[,c("GENE","PFAM_NAME","PFAM_DESCRIPTION")]
 colnames(myFuncs)[1] <- "geneID"
 myGenes <- myGenes[,-c(1)]
 AnnotGenes<- merge(myGenes, myFuncs, by="geneID")
-write.csv(AnnotGenes, "data/07_SNPdat_annot/AllAnnots_99Thr_byGene.csv")
+# write.csv(AnnotGenes, "data/07_SNPdat_annot/AllAnnots_99Thr_byGene.csv")
+write.csv(AnnotGenes, "data/07_SNPdat_annot/AllAnnots_999Thr_byGene.csv")
 
 #summary DF for WHOLE GENOME
 #remove empty levels of the variable (in case function appears 0 times in whole genome)
@@ -81,4 +85,5 @@ names(AntOverrep)
 AntOverrep$fisher.up.All <- fisher.p.over.AllWavyGenFreq
 AntOverrep$fisher.dn.All <- fisher.p.under.AllWavyGenFreq
 
-write.csv(AntOverrep, "data/07_SNPdat_annot/Thr99_FuncAnnotatedGenes.csv")
+# write.csv(AntOverrep, "data/07_SNPdat_annot/Thr99_FuncAnnotatedGenes.csv")
+write.csv(AntOverrep, "data/07_SNPdat_annot/Thr999_FuncAnnotatedGenes.csv")

@@ -22,10 +22,12 @@ setwd("~/../Desktop/B. cinera/Hwaviness/")
 #SNP list
 ## read in correct file
 ## can run this separately for 99% threshold and 99.9% threshold
-#mySNPs <- read.csv("data/05_genes/Hwavi_TopSNPs99.csv")
+
 mySNPs <- read.csv("data/05_genes/Hwavi_TopSNPs99.csv")
-#myGenes <- read.csv("data/06_snpdat/snpdat99/Hwavi_TopSNPs99.FORPERL.csv")
-myGenes <- read.csv("data/06_snpdat/snpdat99/Hwavi_TopSNPs999.FORPERL.csv")
+myGenes <- read.csv("data/06_snpdat/snpdat99/Hwavi_TopSNPs99.FORPERL.csv")
+
+# mySNPs <- read.csv("data/05_genes/Hwavi_TopSNPs999.csv")
+# myGenes <- read.csv("data/06_snpdat/snpdat999/Hwavi_TopSNPs999.FORPERL.csv")
 
 #merge SNPs with genes
 mySNPs$Chrom2 <- paste("CHROMOSOME",mySNPs$Chrom, sep='')
@@ -52,6 +54,7 @@ names(mySNPwGen)
 colnames(mySNPwGen)[10] <- "geneID"
 
 write.csv(mySNPwGen, "data/06_snpdat/99Thr_snpGenes_2kbwin.csv")
+# write.csv(mySNPwGen, "data/06_snpdat/999Thr_snpGenes_2kbwin.csv")
 
 #if any SNP is > 0 for a given gene, will get sum > 0
 #else, sum = 0
@@ -63,3 +66,4 @@ table(myGeneSummary$pheno_count)
 
 ##name according to threshold
 write.csv(myGeneSummary, "data/06_snpdat/99Thr_genes_2kbwin.csv")
+# write.csv(myGeneSummary, "data/06_snpdat/999Thr_genes_2kbwin.csv")

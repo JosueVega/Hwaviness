@@ -89,7 +89,7 @@ print(ggplot(HEM.plotdata, aes(x=Index, y=HEM.plotdata[,4], fill=Chrom))+
         geom_hline(yintercept=get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
         geom_hline(yintercept=get(paste("TH999pos_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
         geom_text(aes(0,get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), label = "99.9% Threshold", vjust = 1.2, hjust = .05), col = "black")+
-#        theme(legend.position="none")+
+        theme(legend.position="none")+
 #        coord_cartesian(xlim = c(7109948, 8969240), ylim = c(-.25, .05))+
         scale_x_continuous(name="Chromosome", breaks = c(1678379.5,	5229682,	8969240,	11025801.5,	13523203,	17029455,	19742569.5,	22088123.5,	24084729.5,	26433592,	28191490,	29741442,	31466489.5,	33553839,	35326706,	38389760.5), labels = c("1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12", "13", "14", "15", "16"))+
         expand_limits(y=0))
