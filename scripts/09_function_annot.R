@@ -3,8 +3,8 @@
 #052217
 
 ##customize this part
-#Input: SNP data/GWAS_files/05_annotation/Domest_topSNPs_genestoAnnot.csv 
-#and Gene data/GWAS_files/05_annotation/Domest_TopSNPs_10NA_intoAnt.csv
+#Input: SNP data/05_annotation/Domest_topSNPs_genestoAnnot.csv 
+#and Gene data/05_annotation/Domest_TopSNPs_10NA_intoAnt.csv
 #from script 10_GeneAnnot_10NA_venns_figR8.R
 #Output:
 #Figures: None

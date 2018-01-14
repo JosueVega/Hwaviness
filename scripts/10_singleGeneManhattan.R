@@ -157,35 +157,35 @@ unique(HEM.topSNPs.P$Pos)
 
 #jpeg("paper/plots/FigR8/Sl_LesionSize_trueMAF20_NA10_lowTR.gene01Chr16.ManhattanPlot.jpg", width=7, height=5, units='in', res=600)
 jpeg("paper/plots/FigR8/Sl_LesionSize_trueMAF20_NA10_lowTR.gene01Chr2.2.ManhattanPlot.jpg", width=7, height=5, units='in', res=600)
-  ggplot(HEM.topSNPs.P, aes(x=Pos, y=100*Effect))+
-         theme_bw()+
-         colScale+
-         geom_point(aes(color = factor(Trait)))+
-         labs(list(y=expression(paste("Estimated SNP Effect Size (",mm^{2},")"))))+
-         guides(col = guide_legend(nrow = 8, title="SNP position"))+
-         theme(legend.position="none")+
-         scale_y_continuous(breaks=c(0.015, 0.01, 0.005, 0, -0.005, -0.01, -0.015), limits=c(-0.015, 0.015))+
-         scale_x_continuous(name="SNP position on Chr 2.2 (kb)", 
-                            #this is by Pos
-                            breaks=c(823000, 824000, 825000, 826000, 827000, 828000, 829000), 
-                            
-                            labels=c("823", "824", "825", "826", "827", "828", "829"), limits=c(823000, 829000))+
-    theme(panel.border = element_blank(), panel.grid.major = element_blank(),
-          panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))+
-    theme(text = element_text(size=14), axis.text.x = element_text(size=14), axis.text.y = element_text(size=14))+
-    #floated above chart: ymin=0.009, ymax=0.011
-    #exon 1 825306	826178
-    geom_rect(mapping=aes(ymin=-0.001, ymax=0.001, xmin=825306, xmax=826178), alpha=0.01, fill="darkturquoise")+
-    #exon 2 826235	826345
-    geom_rect(mapping=aes(ymin=-0.001, ymax=0.001, xmin=826235, xmax=826345), alpha=0.01, fill="darkturquoise")+
-    #block 1
-    geom_rect(mapping=aes(ymin=0.010, ymax=0.012, xmin=823323, xmax=823506), alpha=0.01, fill="red")+
-    #block 2
-    geom_rect(mapping=aes(ymin=0.010, ymax=0.012, xmin=823848, xmax=824176), alpha=0.01, fill="red")+
-    #block 3
-    geom_rect(mapping=aes(ymin=0.010, ymax=0.012, xmin=824908, xmax=827148), alpha=0.01, fill="red")+
-    #block 4
-    geom_rect(mapping=aes(ymin=0.010, ymax=0.012, xmin=827641, xmax=828305), alpha=0.01, fill="red")+
-    #geom_vline(xintercept=c(x),linetype="dotted")+
-    expand_limits(y=0)
+ggplot(HEM.topSNPs.P, aes(x=Pos, y=100*Effect))+
+  theme_bw()+
+  colScale+
+  geom_point(aes(color = factor(Trait)))+
+  labs(list(y=expression(paste("Estimated SNP Effect Size (",mm^{2},")"))))+
+  guides(col = guide_legend(nrow = 8, title="SNP position"))+
+  theme(legend.position="none")+
+  scale_y_continuous(breaks=c(0.015, 0.01, 0.005, 0, -0.005, -0.01, -0.015), limits=c(-0.015, 0.015))+
+  scale_x_continuous(name="SNP position on Chr 2.2 (kb)", 
+                     #this is by Pos
+                     breaks=c(823000, 824000, 825000, 826000, 827000, 828000, 829000), 
+                     
+                     labels=c("823", "824", "825", "826", "827", "828", "829"), limits=c(823000, 829000))+
+  theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))+
+  theme(text = element_text(size=14), axis.text.x = element_text(size=14), axis.text.y = element_text(size=14))+
+  #floated above chart: ymin=0.009, ymax=0.011
+  #exon 1 825306	826178
+  geom_rect(mapping=aes(ymin=-0.001, ymax=0.001, xmin=825306, xmax=826178), alpha=0.01, fill="darkturquoise")+
+  #exon 2 826235	826345
+  geom_rect(mapping=aes(ymin=-0.001, ymax=0.001, xmin=826235, xmax=826345), alpha=0.01, fill="darkturquoise")+
+  #block 1
+  geom_rect(mapping=aes(ymin=0.010, ymax=0.012, xmin=823323, xmax=823506), alpha=0.01, fill="red")+
+  #block 2
+  geom_rect(mapping=aes(ymin=0.010, ymax=0.012, xmin=823848, xmax=824176), alpha=0.01, fill="red")+
+  #block 3
+  geom_rect(mapping=aes(ymin=0.010, ymax=0.012, xmin=824908, xmax=827148), alpha=0.01, fill="red")+
+  #block 4
+  geom_rect(mapping=aes(ymin=0.010, ymax=0.012, xmin=827641, xmax=828305), alpha=0.01, fill="red")+
+  #geom_vline(xintercept=c(x),linetype="dotted")+
+  expand_limits(y=0)
 dev.off()
