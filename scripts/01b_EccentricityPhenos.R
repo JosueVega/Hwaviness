@@ -32,7 +32,24 @@ fullmod
 Cmodel <- lm(Lesion.0.m.eccentricity ~ Isolate + Plant + Experiment + (Isolate*Plant) + (Plant*GrowingFlat) + (Isolate*AgarFlat), allphenos) ## Dropped (Plant*AgarFlat) term b/c change was insignificant 
 
 currmod <- Cmodel # Change for whatever model
-summary(currmod) # provide summary stat over the parameters of the lm
+summary(currmod) # provide summary stat4 over the parameters of the lm
 anova(currmod)# get the anova table for the linear model
 shapiro.test(residuals(currmod))
 
+
+###### Finding LsMeans
+f=NULL
+library(data.table)
+library(lsmeans)
+library(lme4)
+library(lmerTest)
+BcAtPhenos.lm <- lmer(Lesion.0.m.eccentricity ~ Isolate + Plant + Experiment + Isolate*Plant + (1|GrowingFlat) + (1|AgarFlat), allphenos)
+# BcAtPhenos.lm <- lm(Lesion.0.m.eccentricity ~ Isolate + Plant + Experiment + (Isolate*Plant) + (Plant*GrowingFlat) + (Isolate*AgarFlat), allphenos)
+
+anova(BcAtPhenos.lm) #check to make sure model is working
+#Wavy.lsm <- lsmeans(Wavy.lm, "Isolate")
+BcAtPhenos.lsm <- lsmeansLT(BcAtPhenos.lm) #lsmeans is deprecaed -> lsmeansLT works (recommended by R)
+df <- as.data.frame(print(BcAtPhenos.lsm))
+setDT(df, keep.rownames = T)[]
+
+write.csv(df, "C:/Users/vegaj/Desktop/B. cinera/Hwaviness/data/BcAtPhenos/BcAtPhenosGWAS_lsmeans.fxmod1.csv")
