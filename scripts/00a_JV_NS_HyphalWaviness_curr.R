@@ -1,4 +1,4 @@
-JV_HyphalWaviness_NS.R
+#JV_HyphalWaviness_NS.R
 #Created on R by Josue Vega and Nicole Soltis Jul 2017 
 #Current Purpose
 #Individual Scripts for Data Analysis of Hyphal Waviness
@@ -258,9 +258,12 @@ library(data.table)
 library(lsmeans)
 library(lme4)
 library(lmerTest)
-Wavy.lm <- lmer(Phenotype ~ Isolate + (Isolate/PlateBlock) + (1|Date) + (1|PlateBlock) + (Date/PlateBlock), data=mydata)
-#Wavy.lm <- lmer(Phenotype ~ Isolate + (Isolate*PlateBlock) + Date + (Date/PlateBlock), data=mydata)#date made random for lsmeans to work, NewDate is treated as a random effect
- 
+Linear_Wavy.lm <- lm(Phenotype ~ Isolate + (Isolate*PlateBlock) + Date + (Date/PlateBlock), data=mydata)#Linear model form, ##dropped Isolate/PlateBlock Interaction for low effect
+#OldWavy.lm <- lmer(Phenotype ~ Isolate + (Isolate*PlateBlock) + (1|Date) + (1|PlateBlock) + (PlateBlock/Date), data=mydata)
+#lmer needed to be used for lsmeansLT so converted Linear_Wavy --> Wavy
+##Error with 1: In createDesignMat(rho) :missing cells for some factors (combinations of factors) - care must be taken with type III  hypothesis 
+
+
 anova(Wavy.lm) #check to make sure model is working
 #Wavy.lsm <- lsmeans(Wavy.lm, "Isolate")
 Wavy.lsm <- lsmeansLT(Wavy.lm, "Isolate") #lsmeans is deprecaed -> lsmeansLT works (recommended by R)

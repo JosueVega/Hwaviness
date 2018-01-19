@@ -359,11 +359,11 @@ Hwavi <- HwaviBC
 pdf("../../HWaviness Parts/Completed/Violin_Hwavi_Isolate.pdf", width = 15, height = 5)
 ggplot(Hwavi, aes(reorder(Isolate, Phenotype, mean),Phenotype)) + 
   theme_bw() + 
-  geom_violin(fill='#56B4E9') +
+  geom_violin(fill='#56B4E9', trim = FALSE) +
   theme(axis.text.x=element_text(angle = -90, hjust = 0)) +
-  xlab("Isolate") + ylab("Phenotype Distribution")
-  dev.off()
-mean(Hwavi, Isolate)
+  xlab("Isolate") + ylab("Hyphal Waviness")
+dev.off()
+
 
 #################################
 
