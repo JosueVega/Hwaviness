@@ -94,16 +94,16 @@ SugarPectinWaviness <- merge(SugarPectin, Isolate, by = "Isolate")
 
 pvaluePear <- summary(lm(avg_pheno~P72, SugarPectinWaviness))$coefficients["P72","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$P72, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$P72, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$P72, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$P72, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/Pectin72hScatter_Waviness.pdf")
 plot1 <- ggplot(SugarPectinWaviness, aes(P72,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Isolate Growth on Pectin after 72hr") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Comparison of Isolate growth on Pectin after 72hr to Isolate Hyphal Waviness") +
@@ -115,16 +115,16 @@ dev.off()
 
 pvaluePear <- summary(lm(avg_pheno~P48, SugarPectinWaviness))$coefficients["P48","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$P48, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$P48, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$P48, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$P48, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/Pectin48hScatter_Waviness.pdf")
 plot2 <- ggplot(SugarPectinWaviness, aes(P48,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Isolate Growth on Pectin after 48hr") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Comparison of Isolate growth on Pectin after 48hr to Isolate Hyphal Waviness") +
@@ -135,16 +135,16 @@ dev.off()
 
 pvaluePear <- summary(lm(avg_pheno~S72, SugarPectinWaviness))$coefficients["S72","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$S72, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$S72, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$S72, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$S72, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/Sugar72hScatter_Waviness.pdf")
 plot3 <- ggplot(SugarPectinWaviness, aes(S72,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Isolate Growth on Sugar after 72hr") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Comparison of Isolate growth on Sugar after 72hr to Isolate Hyphal Waviness") +
@@ -155,16 +155,16 @@ dev.off()
 
 pvaluePear <- summary(lm(avg_pheno~S48, SugarPectinWaviness))$coefficients["S48","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$S48, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$S48, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$S48, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(SugarPectinWaviness$avg_pheno,SugarPectinWaviness$S48, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/Sugar48hScatter_Waviness.pdf")
 plot4 <- ggplot(SugarPectinWaviness, aes(S48,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Isolate Growth on Sugar after 48hr") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Comparison of Isolate growth on Sugar after 48hr to Isolate Hyphal Waviness") +
@@ -206,16 +206,16 @@ BC_TomatoWaviness <- merge(BC_tomato, Isolate, by = "Isolate")
 
 pvaluePear <- summary(lm(avg_pheno~meanLesion, BC_TomatoWaviness))$coefficients["meanLesion","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BC_TomatoWaviness$avg_pheno,BC_TomatoWaviness$meanLesion, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BC_TomatoWaviness$avg_pheno,BC_TomatoWaviness$meanLesion, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_TomatoWaviness$avg_pheno,BC_TomatoWaviness$meanLesion, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_TomatoWaviness$avg_pheno,BC_TomatoWaviness$meanLesion, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/TomatoScatter_Lesion_Waviness.pdf")
 plotTom <- ggplot(BC_TomatoWaviness, aes(meanLesion,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Mean Lesion Size on Tomato") + ylab("Average Hyphal Waviness") +
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Tomato against Hyphal Waviness per Isolate") +
@@ -251,16 +251,16 @@ BC_InteractWaviness <- merge(BC_Interact, Isolate, by = "Isolate")
 
 pvaluePear <- summary(lm(avg_pheno~Cendivia, BC_InteractWaviness))$coefficients["Cendivia","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Cendivia, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Cendivia, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Cendivia, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Cendivia, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/CendiviaScatter_Lesion_Waviness.pdf")
 plot1 <- ggplot(BC_InteractWaviness, aes(Cendivia,avg_pheno)) + 
-  geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) + #geom_text(label = (rvalueSpea), parse = TRUE) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) + #geom_text(label = (PvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Mean Lesion Size on C. endivia") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Cichorium endivia against Hyphal Waviness per Isolate") +
@@ -272,17 +272,17 @@ dev.off()
 
 pvaluePear <- summary(lm(avg_pheno~Brapa, BC_InteractWaviness))$coefficients["Brapa","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Brapa, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Brapa, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Brapa, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Brapa, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/BrapaScatter_Lesion_Waviness.pdf")
 plot2 <- ggplot(BC_InteractWaviness, aes(Brapa,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Lesion Size on B. rapa") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Brassica rapa against Hyphal Waviness per Isolate") +
@@ -293,17 +293,17 @@ dev.off()
 
 pvaluePear <- summary(lm(avg_pheno~Cintybus, BC_InteractWaviness))$coefficients["Cintybus","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Cintybus, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Cintybus, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Cintybus, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Cintybus, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/CintybusScatter_Lesion_Waviness.pdf")
 plot3 <- ggplot(BC_InteractWaviness, aes(Cintybus,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Lesion Size on C. intybus") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Cichorium intybus against Hyphal Waviness per Isolate") +
@@ -314,17 +314,17 @@ dev.off()
 
 pvaluePear <- summary(lm(avg_pheno~Glycine, BC_InteractWaviness))$coefficients["Glycine","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Glycine, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Glycine, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Glycine, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Glycine, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/GlycineScatter_Lesion_Waviness.pdf")
 plot4 <- ggplot(BC_InteractWaviness, aes(Glycine,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Lesion Size on G. max") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Glycine max against Hyphal Waviness per Isolate") +
@@ -335,16 +335,16 @@ dev.off()
 
 pvaluePear <- summary(lm(avg_pheno~Helianthus, BC_InteractWaviness))$coefficients["Helianthus","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Helianthus, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Helianthus, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Helianthus, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Helianthus, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/HelianthusScatter_Lesion_Waviness.pdf")
 plot5 <- ggplot(BC_InteractWaviness, aes(Helianthus,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Mean Lesion Size on H. annuus") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Helianthus annuus against Hyphal Waviness per Isolate") +
@@ -355,17 +355,17 @@ dev.off()
 
 pvaluePear <- summary(lm(avg_pheno~Cendivia, BC_InteractWaviness))$coefficients["Cendivia","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Cendivia, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$Cendivia, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Cendivia, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$avg_pheno,BC_InteractWaviness$Cendivia, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/SolanumScatter_Lesion_Waviness.pdf")
 plot6 <- ggplot(BC_InteractWaviness, aes(Solanum,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Lesion Size on Solanum") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Solanum against Hyphal Waviness per Isolate") +
@@ -449,17 +449,17 @@ BC_EccWaviness <- merge(Ecc, Isolate, by = "Isolate")
 
 pvaluePear <- summary(lm(avg_pheno~Estimate, BC_EccWaviness))$coefficients["Estimate","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BC_EccWaviness$avg_pheno,BC_EccWaviness$Estimate, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BC_EccWaviness$avg_pheno,BC_EccWaviness$Estimate, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_EccWaviness$avg_pheno,BC_EccWaviness$Estimate, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_EccWaviness$avg_pheno,BC_EccWaviness$Estimate, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/EccenScatter_Lesion_Waviness.pdf")
 plot6 <- ggplot(BC_EccWaviness, aes(Estimate,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Eccentricity") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Solanum against Hyphal Waviness per Isolate") +
@@ -493,16 +493,16 @@ rvaluePear <- summary(lm(HwaviEstimate~P72, SugarPectinWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~P72, SugarPectinWaviness))$coefficients["P72","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$P72, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$P72, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$P72, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$P72, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/Pectin72hScatter_LsWaviness.pdf")
 plot1 <- ggplot(SugarPectinWaviness, aes(P72,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Isolate Growth on Pectin after 72hr") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Comparison of Isolate growth on Pectin after 72hr to Isolate Hyphal Waviness") +
@@ -516,16 +516,16 @@ rvaluePear <- summary(lm(HwaviEstimate~P48, SugarPectinWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~P48, SugarPectinWaviness))$coefficients["P48","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$P48, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$P48, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$P48, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$P48, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/Pectin48hScatter_LsWaviness.pdf")
 plot2 <- ggplot(SugarPectinWaviness, aes(P48,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Isolate Growth on Pectin after 48hr") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Comparison of Isolate growth on Pectin after 48hr to Isolate Hyphal Waviness") +
@@ -538,16 +538,16 @@ rvaluePear <- summary(lm(HwaviEstimate~S72, SugarPectinWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~S72, SugarPectinWaviness))$coefficients["S72","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$S72, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$S72, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$S72, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$S72, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/Sugar72hScatter_LsWaviness.pdf")
 plot3 <- ggplot(SugarPectinWaviness, aes(S72,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Isolate Growth on Sugar after 72hr") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Comparison of Isolate growth on Sugar after 72hr to Isolate Hyphal Waviness") +
@@ -560,16 +560,16 @@ rvaluePear <- summary(lm(HwaviEstimate~S48, SugarPectinWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~S48, SugarPectinWaviness))$coefficients["S48","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$S48, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$S48, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$S48, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(SugarPectinWaviness$HwaviEstimate,SugarPectinWaviness$S48, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/Sugar48hScatter_LsWaviness.pdf")
 plot4 <- ggplot(SugarPectinWaviness, aes(S48,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Isolate Growth on Sugar after 48hr") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Comparison of Isolate growth on Sugar after 48hr to Isolate Hyphal Waviness") +
@@ -602,17 +602,17 @@ rvaluePear <- summary(lm(HwaviEstimate~Estimate, BC_EccWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~Estimate, BC_EccWaviness))$coefficients["Estimate","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BC_EccWaviness$HwaviEstimate,BC_EccWaviness$Estimate, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BC_EccWaviness$HwaviEstimate,BC_EccWaviness$Estimate, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_EccWaviness$HwaviEstimate,BC_EccWaviness$Estimate, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_EccWaviness$HwaviEstimate,BC_EccWaviness$Estimate, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/EccenScatter_Lesion_LsWaviness.pdf")
 plot6 <- ggplot(BC_EccWaviness, aes(Estimate,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Eccentricity") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Solanum against Hyphal Waviness per Isolate") +
@@ -639,20 +639,20 @@ rvaluePear <- summary(lm(HwaviEstimate~meanLesion, BC_TomatoWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~meanLesion, BC_TomatoWaviness))$coefficients["meanLesion","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BC_TomatoWaviness$HwaviEstimate,BC_TomatoWaviness$meanLesion, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BC_TomatoWaviness$HwaviEstimate,BC_TomatoWaviness$meanLesion, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_TomatoWaviness$HwaviEstimate,BC_TomatoWaviness$meanLesion, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_TomatoWaviness$HwaviEstimate,BC_TomatoWaviness$meanLesion, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/TomatoScatter_Lesion_Waviness.pdf")
 plotTom <- ggplot(BC_TomatoWaviness, aes(meanLesion,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Mean Lesion Size on Tomato") + ylab("LsMeans Hyphal Waviness") +
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Tomato against Hyphal Waviness per Isolate") +
-  geom_smooth(method='lm', se = FALSE)
+  geom_smooth(method='lm')
 plotTom
 dev.off()
 
@@ -672,16 +672,16 @@ rvaluePear <- summary(lm(HwaviEstimate~Cendivia, BC_InteractWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~Cendivia, BC_InteractWaviness))$coefficients["Cendivia","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Cendivia, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Cendivia, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Cendivia, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Cendivia, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/CendiviaScatter_Lesion_Waviness.pdf")
 plot1 <- ggplot(BC_InteractWaviness, aes(Cendivia,HwaviEstimate)) + 
-  geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) + #geom_text(label = (rvalueSpea), parse = TRUE) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) + #geom_text(label = (PvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Mean Lesion Size on C. endivia") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Cichorium endivia against Hyphal Waviness per Isolate") +
@@ -695,17 +695,17 @@ rvaluePear <- summary(lm(HwaviEstimate~Brapa, BC_InteractWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~Brapa, BC_InteractWaviness))$coefficients["Brapa","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Brapa, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Brapa, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Brapa, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Brapa, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/BrapaScatter_Lesion_Waviness.pdf")
 plot2 <- ggplot(BC_InteractWaviness, aes(Brapa,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Lesion Size on B. rapa") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Brassica rapa against Hyphal Waviness per Isolate") +
@@ -718,17 +718,17 @@ rvaluePear <- summary(lm(HwaviEstimate~Cintybus, BC_InteractWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~Cintybus, BC_InteractWaviness))$coefficients["Cintybus","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Cintybus, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Cintybus, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Cintybus, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Cintybus, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/CintybusScatter_Lesion_Waviness.pdf")
 plot3 <- ggplot(BC_InteractWaviness, aes(Cintybus,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Lesion Size on C. intybus") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Cichorium intybus against Hyphal Waviness per Isolate") +
@@ -741,17 +741,17 @@ rvaluePear <- summary(lm(HwaviEstimate~Glycine, BC_InteractWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~Glycine, BC_InteractWaviness))$coefficients["Glycine","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Glycine, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Glycine, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Glycine, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Glycine, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/GlycineScatter_Lesion_Waviness.pdf")
 plot4 <- ggplot(BC_InteractWaviness, aes(Glycine,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Lesion Size on G. max") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Glycine max against Hyphal Waviness per Isolate") +
@@ -764,16 +764,16 @@ rvaluePear <- summary(lm(HwaviEstimate~Helianthus, BC_InteractWaviness))$r.squar
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~Helianthus, BC_InteractWaviness))$coefficients["Helianthus","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Helianthus, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Helianthus, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Helianthus, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Helianthus, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/HelianthusScatter_Lesion_Waviness.pdf")
 plot5 <- ggplot(BC_InteractWaviness, aes(Helianthus,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Mean Lesion Size on H. annuus") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Helianthus annuus against Hyphal Waviness per Isolate") +
@@ -786,17 +786,17 @@ rvaluePear <- summary(lm(HwaviEstimate~Solanum, BC_InteractWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~Solanum, BC_InteractWaviness))$coefficients["Solanum","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Solanum, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$Solanum, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Solanum, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BC_InteractWaviness$HwaviEstimate,BC_InteractWaviness$Solanum, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/SolanumScatter_Lesion_Waviness.pdf")
 plot6 <- ggplot(BC_InteractWaviness, aes(Solanum,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Mean Lesion Size on Solanum") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   #ggtitle("Mean Lesion Size on Solanum against Hyphal Waviness per Isolate") +
@@ -831,16 +831,16 @@ rvaluePear <- summary(lm(HwaviEstimate~anac055, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~anac055, BcAt_LsWaviness))$coefficients["anac055","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$anac055, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$anac055, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$anac055, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$anac055, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/anac088Scatter_Lesion_LsWaviness.pdf")
 plot1 <- ggplot(BcAt_LsWaviness, aes(anac055,HwaviEstimate)) + 
-  geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) + #geom_text(label = (rvalueSpea), parse = TRUE) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) + #geom_text(label = (PvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Lesion Eccentricity on anac088") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -853,17 +853,17 @@ rvaluePear <- summary(lm(HwaviEstimate~coi1, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~coi1, BcAt_LsWaviness))$coefficients["coi1","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$coi1, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$coi1, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$coi1, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$coi1, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/coi1Scatter_Lesion_LsWaviness.pdf")
 plot2 <- ggplot(BcAt_LsWaviness, aes(coi1,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Lesion Eccentricity on coi1") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -875,17 +875,17 @@ rvaluePear <- summary(lm(HwaviEstimate~col0, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~col0, BcAt_LsWaviness))$coefficients["col0","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$col0, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$col0, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$col0, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$col0, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/col0Scatter_Lesion_LsWaviness.pdf")
 plot3 <- ggplot(BcAt_LsWaviness, aes(col0,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Lesion Eccentricity on col0") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -897,17 +897,17 @@ rvaluePear <- summary(lm(HwaviEstimate~npr1, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~npr1, BcAt_LsWaviness))$coefficients["npr1","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$npr1, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$npr1, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$npr1, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$npr1, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/npr1Scatter_Lesion_LsWaviness.pdf")
 plot4 <- ggplot(BcAt_LsWaviness, aes(npr1,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Lesion Eccentricity on npr1") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -919,16 +919,16 @@ rvaluePear <- summary(lm(HwaviEstimate~pad3, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~pad3, BcAt_LsWaviness))$coefficients["pad3","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$pad3, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$pad3, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$pad3, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$pad3, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/pad3Scatter_Lesion_LsWaviness.pdf")
 plot5 <- ggplot(BcAt_LsWaviness, aes(pad3,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Lesion Eccentricity on pad3") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -941,16 +941,16 @@ rvaluePear <- summary(lm(HwaviEstimate~tga3, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(HwaviEstimate~tga3, BcAt_LsWaviness))$coefficients["tga3","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$tga3, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$tga3, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$tga3, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$HwaviEstimate,BcAt_LsWaviness$tga3, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/LsMeanScatters/tga3Scatter_Lesion_LsWaviness.pdf")
 plot6 <- ggplot(BcAt_LsWaviness, aes(tga3,HwaviEstimate)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Lesion Eccentricity on tga3") + ylab("LsMeans Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -993,17 +993,17 @@ rvaluePear <- summary(lm(avg_pheno~anac055, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(avg_pheno~anac055, BcAt_LsWaviness))$coefficients["anac055","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$anac055, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$anac055, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$anac055, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$anac055, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 
 pdf("../HWaviness Parts/Completed/anac088Scatter_Lesion_LsWaviness.pdf")
 plot1 <- ggplot(BcAt_LsWaviness, aes(anac055,avg_pheno)) + 
-  geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) + #geom_text(label = (rvalueSpea), parse = TRUE) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) + #geom_text(label = (PvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Lesion Eccentricity on anac088") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -1016,17 +1016,17 @@ rvaluePear <- summary(lm(avg_pheno~coi1, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(avg_pheno~coi1, BcAt_LsWaviness))$coefficients["coi1","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$coi1, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$coi1, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$coi1, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$coi1, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/coi1Scatter_Lesion_LsWaviness.pdf")
 plot2 <- ggplot(BcAt_LsWaviness, aes(coi1,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Lesion Eccentricity on coi1") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -1038,17 +1038,17 @@ rvaluePear <- summary(lm(avg_pheno~col0, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(avg_pheno~col0, BcAt_LsWaviness))$coefficients["col0","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$col0, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$col0, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$col0, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$col0, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/col0Scatter_Lesion_LsWaviness.pdf")
 plot3 <- ggplot(BcAt_LsWaviness, aes(col0,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Lesion Eccentricity on col0") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -1060,17 +1060,17 @@ rvaluePear <- summary(lm(avg_pheno~npr1, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(avg_pheno~npr1, BcAt_LsWaviness))$coefficients["npr1","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$npr1, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$npr1, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$npr1, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$npr1, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/npr1Scatter_Lesion_LsWaviness.pdf")
 plot4 <- ggplot(BcAt_LsWaviness, aes(npr1,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
-  geom_text(x = 2, y = 6, label = (rvalueSpea), parse = TRUE) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  geom_text(x = 2, y = 6, label = (PvalueSpea), parse = TRUE) +
   xlab("Lesion Eccentricity on npr1") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -1082,16 +1082,16 @@ rvaluePear <- summary(lm(avg_pheno~pad3, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(avg_pheno~pad3, BcAt_LsWaviness))$coefficients["pad3","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$pad3, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$pad3, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$pad3, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$pad3, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/pad3Scatter_Lesion_LsWaviness.pdf")
 plot5 <- ggplot(BcAt_LsWaviness, aes(pad3,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Lesion Eccentricity on pad3") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')
@@ -1104,16 +1104,16 @@ rvaluePear <- summary(lm(avg_pheno~tga3, BcAt_LsWaviness))$r.squared
 rvaluePear <- format(round(rvaluePear, 5), nsmall = 4)
 pvaluePear <- summary(lm(avg_pheno~tga3, BcAt_LsWaviness))$coefficients["tga3","Pr(>|t|)"]
 pvaluePear <- format(round(pvaluePear, 5), nsmall = 4)
-rvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$tga3, method="spearman", exact=FALSE)$p.value
-rvalueSpea <- format(round(rvalueSpea, 5), nsmall = 4)
-pvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$tga3, method="spearman", exact=FALSE)$estimate
-pvalueSpea <- format(round(pvalueSpea, 5), nsmall = 4)
+PvalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$tga3, method="spearman", exact=FALSE)$p.value
+PvalueSpea <- format(round(PvalueSpea, 5), nsmall = 4)
+rhovalueSpea <- cor.test(BcAt_LsWaviness$avg_pheno,BcAt_LsWaviness$tga3, method="spearman", exact=FALSE)$estimate
+rhovalueSpea <- format(round(rhovalueSpea, 5), nsmall = 4)
 
 pdf("../HWaviness Parts/Completed/tga3Scatter_Lesion_Waviness.pdf")
 plot6 <- ggplot(BcAt_LsWaviness, aes(tga3,avg_pheno)) + 
   geom_point(color='red') + #geom_text(aes(label=Isolate), position = position_nudge(y = -0.1),  size=3) +
-  annotate(geom = 'text', label = paste('r2 = ', rvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
-  annotate(geom = 'text', label = paste('p = ', pvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
+  annotate(geom = 'text', label = paste('p =', PvalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -1) +
+  annotate(geom = 'text', label = paste('rho = ', rhovalueSpea), x = Inf, y = -Inf, hjust = 1, vjust = -2.5) +
   xlab("Lesion Eccentricity on tga3") + ylab("Average Hyphal Waviness") + 
   ggtitle(NULL) +
   geom_smooth(method='lm')

@@ -83,34 +83,34 @@ colScale <- scale_colour_manual(name = "Chrom",values = myColors)
 print(ggplot(HEM.plotdata, aes(x=Index, y=HEM.plotdata[,4], fill=Chrom))+
         theme_bw()+
         colScale+ #for custom color scale 
-        geom_point(aes(color = factor(Chrom)))+
-        labs(list(y="SNP Effect Estimate", title=("SNP Location and Effect Estimate of B. cinerea Hyphal Waviness Phenotype")))+
+        geom_point(aes(color = factor(Chrom)), size = 1)+
+        labs(list(y="SNP Effect Size Estimate"))+ #, title=("SNP Location and Effect Estimate of B. cinerea Hyphal Waviness Phenotype")))+
         guides(col = guide_legend(nrow = 8, title="Chromosome"))+
-        geom_hline(yintercept=get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
-        geom_hline(yintercept=get(paste("TH999pos_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
-        geom_text(aes(0,get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), label = "99.9% Threshold", vjust = 1.2, hjust = .05), col = "black")+
-        theme(legend.position="none")+
-#        coord_cartesian(xlim = c(7109948, 8969240), ylim = c(-.25, .05))+
+        geom_hline(yintercept=get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2, size = .7) +
+        geom_hline(yintercept=get(paste("TH999pos_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2, size = .7) +
+        #geom_text(aes(0",get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), label = "99.9 Threshold", vjust = -1.3, hjust = -.10), col = "black")+ #mention in legend about dotted line meaning 99.9% threshold
+        theme(legend.position="none", axis.text = element_text(color="black",size=11), axis.title = element_text(size = 14))+
+        coord_cartesian(xlim = c(1600000, 39500000))+
         scale_x_continuous(name="Chromosome", breaks = c(1678379.5,	5229682,	8969240,	11025801.5,	13523203,	17029455,	19742569.5,	22088123.5,	24084729.5,	26433592,	28191490,	29741442,	31466489.5,	33553839,	35326706,	38389760.5), labels = c("1", "2", "3", "4", "5", "6", "7","8", "9", "10", "11", "12", "13", "14", "15", "16"))+
         expand_limits(y=0))
 
 #dev.off()
 
 
-#### Dotplot of third chromosome (Most negative effect peak)
-print(ggplot(HEM.plotdata, aes(x=Index, y=HEM.plotdata[,4], fill=Chrom))+
-        theme_bw()+
-        colScale+ #for custom color scale 
-        geom_point(aes(color = factor(Chrom)))+
-        labs(list(y="SNP Effect Estimate", title=("Partial Chromosome 3: SNP Location and Effect Estimate of B. cinerea Hyphal Waviness Phenotype")))+
-        
-        geom_hline(yintercept=get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
-        geom_hline(yintercept=get(paste("TH999pos_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
-        geom_text(aes(7110000,get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), label = "99.9% Threshold", vjust = 1.2, hjust = .05), col = "black")+ #Label of threshold
-        geom_text(mapping=aes(x=7109948, y=-.25, label=("Contig:3.0"), size=2)) + 
-        geom_text(mapping=aes(x=7279395, y=-.25, label=("Contig:3.1"), size=2)) +
-
-#        xlab(breaks = c(7250000,	7500000,	7750000,	80000000,	8250000), labels = c("7250k", "7500k", "7750k", "8000k", "8250k"))+
-        theme(legend.position="none")+
-        xlim(7100000, 8250000)+ylim(NA, .05)+
-        expand_limits(y=0))
+# #### Dotplot of third chromosome (Most negative effect peak)
+# print(ggplot(HEM.plotdata, aes(x=Index, y=HEM.plotdata[,4], fill=Chrom))+
+#         theme_bw()+
+#         colScale+ #for custom color scale 
+#         geom_point(aes(color = factor(Chrom)))+
+#         labs(list(y="SNP Effect Estimate", title=("Partial Chromosome 3: SNP Location and Effect Estimate of B. cinerea Hyphal Waviness Phenotype")))+
+#         
+#         geom_hline(yintercept=get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
+#         geom_hline(yintercept=get(paste("TH999pos_", names(HEM.plotdata[4]), sep="")), colour = "black", lty=2) +
+#         geom_text(aes(7110000,get(paste("TH999neg_", names(HEM.plotdata[4]), sep="")), label = "99.9% Threshold", vjust = 1.2, hjust = .05), col = "black")+ #Label of threshold
+#         geom_text(mapping=aes(x=7109948, y=-.25, label=("Contig:3.0"), size=2)) + 
+#         geom_text(mapping=aes(x=7279395, y=-.25, label=("Contig:3.1"), size=2)) +
+# 
+# #        xlab(breaks = c(7250000,	7500000,	7750000,	80000000,	8250000), labels = c("7250k", "7500k", "7750k", "8000k", "8250k"))+
+#         theme(legend.position="none")+
+#         xlim(7100000, 8250000)+ylim(NA, .05)+
+#         expand_limits(y=0))
