@@ -1,0 +1,46 @@
+Functions with p<.05 
+
+Phosphoglucomutase/phosphomannomutase
+Ankyrin repeats (many copies)
+Ankyrin repeat
+Uso1 / p115 like vesicle tethering protein
+Cation transport protein
+Methionine biosynthesis protein MetW
+Methyltransferase domain
+Piwi domain
+Fungal protein of unknown function (DUF1752)
+Late exocytosis
+Domain of unknown function DUF221
+von Willebrand factor type A domain
+Glutathione S-transferase
+Beta-lactamase superfamily domain
+CFEM domain
+SAM domain (Sterile alpha motif)
+Zinc-finger double domain
+Protein kinase domain
+Methyltransferase small domain
+Acetoacetate decarboxylase (ADC)
+CoA binding domain
+Cse1
+DeoC/LacD family aldolase
+Down-regulated in metastasis
+DREV methyltransferase
+Initiator tRNA phosphoribosyl transferase
+Mad3/BUB1 homology region 1
+Peptidase C65 Otubain
+Phosphoglucose isomerase
+Phospholipase_D-nuclease N-terminal
+PRO8NT (NUC069)
+PROCN (NUC071) domain
+PROCT (NUC072) domain
+Protein of unknown function (DUF2781)
+Protein of unknown function (DUF3295)
+PRP8 domain IV core
+RNA recognition motif of the spliceosomal PrP8
+Serine-threonine protein kinase 19
+U5-snRNA binding site 2 of PrP8
+U6-snRNA interacting domain of PrP8
+Uncharacterised protein family
+Aldehyde dehydrogenase family
+Cyclin
+Tetratricopeptide repeat

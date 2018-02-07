@@ -1,0 +1,14 @@
+Zhu-2014
+Polar hyphal tip growth through microtubule (+ end tracking) 
+
+ a priori Genes 
+Hypothesis:
+Genes involved in the Hyphal Growth and response to stimulus
+	Look at Kinesins (+ end mediated)
+	Mitochondria in the Spitzenkorper 
+		(apical aggregate if secretiry vesicles
+	Myosin - polarized growth/secretions 
+	Changing in [Ca2+]
+	gene NhKIN1 - kinesin encoding 
+		reduced hyphal waviness (during knockout) 
+	Spitzenkorper movement genes (kinesins involved)

@@ -1,19 +1,18 @@
-#Nicole E Soltis
-#081117
+#Josue Vega
 #plot of SNPs along gene of interest
 
 #12_singleGeneManhattan.R
 #---------------------------------------------
 rm(list=ls())
-setwd("~/Documents/GitRepos/BcSolGWAS/")
-setwd("~/Projects/BcSolGWAS/")
+setwd("~/../Desktop/B. cinera/Hwaviness/")
+#setwd("~/Projects/BcSolGWAS/")
 library(plyr); library(ggplot2); library(grid)
 
 #Import data (reorganized from script ReformatBigRRouts.R)
-HEM.plotdata <- read.csv("data/GWAS_files/04_bigRRoutput/trueMAF20_20NA/SlBc_12plants_trueMAF20_20NA.HEM.PlotFormat.csv")
+HEM.plotdata <- read.csv("data/04_bigRRoutput/trueMAF20_20NA/HWavi_trueMAF20_20NA.HEM.PlotFormat.csv")
 
 #get threshhold values 
-HEM.thresh <- read.csv("data/GWAS_files/04_bigRRoutput/trueMAF20_20NA/SlBc_12plants_trueMAF20_20NA.HEM.Thresh.csv")
+HEM.thresh <- read.csv("data/04_bigRRoutput/trueMAF20_20NA/HWavi_trueMAF20_20NA.HEM.Thresh.csv")
 
 #take the SNPs over the threshold for each phenotype
 
